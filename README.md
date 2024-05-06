@@ -1,6 +1,6 @@
 # Технологии Программирования
 ## Приходько Владислав Олегович ББИ237. Техническое задание №2.
-[![Build Status](https://github.com/telegramdesktop/tdesktop/workflows/Windows./badge.svg)](https://github.com/voaad/TechProg2/actions)
+[![Build Status](https://github.com/voaad/TechProg2/actions/workflows/WORKFLOW-FILE/badge.svg)](https://github.com/voaad/TechProg2/actions)
 ### Для запуска тестов из веб-интерфейса GitHub, необходимо перейти во вкладку Actions, выбрать нужный процесс и нажать Re-run all jobs. Тесты запускаются автоматически при любом новом коммите в репозиторий этого проекта.
 Этот проект использует Maven. В директории src есть директории main и test. В первой находится файл Main.java, в котором написан проверяемый код, а также файл PerformanceChart.java, который использует библиотеку JFreeChart, которую требуется [скачать](https://github.com/jfree/jfreechart) и подключить самостоятельно. В папке же test, в свою очередь находится файл с кодом тестов. Мной дополнительно был написан тест корректности входных данных. В коде есть комментарии, чтобы было понятно что где тестируется.
 
