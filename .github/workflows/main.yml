@@ -17,3 +17,9 @@ jobs:
       run: ls -R
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
+    - name: notification
+      if: cancelled() == false
+      uses: xinthink/action-telegram@v1.1
+      with:
+        botToken: ${{ secrets.BotToken }}
+        jobStatus: ${{ job.status }}
