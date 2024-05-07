@@ -25,13 +25,17 @@ jobs:
       if: success() || failure()
       with:
         report_paths: '**/target/surefire-reports/TEST-*.xml'
-    - name: send telegram message on push
+    - name: Send Telegram message on success
+      if: success()
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
-        message: |
-          Новый коммит от ${{ github.actor }} в репозитории ${{ github.repository }}:
-          Комментарий: ${{ github.event.commits[0].message }}
-            
-          Посмотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+        message: "Все ок"
+    - name: Send Telegram message on failure
+      if: failure()
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.CHATID }}
+        token: ${{ secrets.BOTTOKEN }}
+        message: "Тесты не пройдены. Подробности в отчете: https://github.com/${{ github.repository }}/commit/${{github.sha}}"
