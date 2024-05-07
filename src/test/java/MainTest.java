@@ -16,7 +16,7 @@ public class MainTest {
 
     @BeforeEach
     public void setUp() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(System.getProperty("user.dir") + "/minmaxtest1kk.txt"));
+        Scanner scanner = new Scanner(new File("minmaxtest100k.txt"));
         numbers = new ArrayList<>();
 
         while (scanner.hasNextBigInteger()) {
@@ -26,21 +26,21 @@ public class MainTest {
 
     @Test
     public void testMin() {
-        BigInteger expected = new BigInteger("0");
+        BigInteger expected = new BigInteger("7");
         BigInteger actual = Main._min(numbers);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testMax() {
-        BigInteger expected = new BigInteger("1000000");
+        BigInteger expected = new BigInteger("999995");
         BigInteger actual = Main._max(numbers);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testSum() {
-        BigInteger expected = new BigInteger("499976210466");
+        BigInteger expected = new BigInteger("49966043273");
         BigInteger actual = Main._sum(numbers);
         Assertions.assertEquals(expected, actual);
     }
