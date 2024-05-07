@@ -15,10 +15,19 @@ jobs:
         java-version: 22
     - name: List directory
       run: ls -R
+        OUTPUT=$(make test)
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
-    - uses: haishanh/actions-telegram-notification@v1
-      if: ${{ always() }}
+        OUTPUT=$(make test)
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
       with:
-        notification-token: ${{ secrets.BOTTOKEN }}
-        job-status: ${{ job.status }}
+        to: ${{ secrets.CHATID }}
+        token: ${{ secrets.BOTTOKEN }}
+        message: |
+          ${{ github.actor }} created commit:
+          Commit message: ${{ github.event.commits[0].message }}
+            
+          Repository: ${{ github.repository }}
+          Test Results: ${{ steps.test.outputs.test-result }}
+          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
