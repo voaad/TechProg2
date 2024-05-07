@@ -24,7 +24,7 @@ jobs:
         - name: List directory
           run: ls -R
         - name: Build with Maven
-          run: mvn -B package --file pom.xml -DskipTests
+          run: mvn -B package --file pom.xml
         - name: Run tests
           run: |
             OUTPUT=$(mvn test)
