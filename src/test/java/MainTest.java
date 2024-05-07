@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MainTest {
     private List<BigInteger> numbers;
 
-    @BeforeEach
     public void setUp() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("summultest2.txt"));
         numbers = new ArrayList<>();
@@ -25,35 +23,40 @@ public class MainTest {
     }
 
     @Test
-    public void testMin() {
+    public void testMin() throws FileNotFoundException {
+        setUp();
         BigInteger expected = new BigInteger("69");
         BigInteger actual = Main._min(numbers);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testMax() {
+    public void testMax() throws FileNotFoundException {
+        setUp();
         BigInteger expected = new BigInteger("1337");
         BigInteger actual = Main._max(numbers);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testSum() {
+    public void testSum() throws FileNotFoundException {
+        setUp();
         BigInteger expected = new BigInteger("2054");
         BigInteger actual = Main._sum(numbers);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testMult() {
+    public void testMult() throws FileNotFoundException {
+        setUp();
         String expected = new String("8834147280");
         String actual = Main._mult(numbers);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testPerformance() { //тест на производительность (затрачиваемое время)
+    public void testPerformance() throws FileNotFoundException { //тест на производительность (затрачиваемое время)
+        setUp();
         long startTime = System.currentTimeMillis();
         Main._min(numbers);
         Main._max(numbers);
@@ -65,7 +68,8 @@ public class MainTest {
     }
 
     @Test
-    public void testDataType() { //тест на корректность взятых из файла данных
+    public void testDataType() throws FileNotFoundException { //тест на корректность взятых из файла данных
+        setUp();
         Object obj = numbers;
         assertTrue(obj instanceof ArrayList<?>);
     }
