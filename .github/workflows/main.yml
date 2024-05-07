@@ -23,7 +23,7 @@ jobs:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
         message: |
-          ${{ github.actor }} внёс изменения:
+          ${{ github.actor }} внёс изменения.
           Комментарий к изменениям: ${{ github.event.commits[0].message }}
             
           Репозиторий: ${{ github.repository }}
