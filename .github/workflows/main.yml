@@ -17,7 +17,7 @@ jobs:
       id: test
       run: ls -R
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -DskipTests
+      run: mvn -B package --file pom.xml -e -X
       env:
         TRES: "steps.test.outputs.test-result"
     - name: Run Tests
