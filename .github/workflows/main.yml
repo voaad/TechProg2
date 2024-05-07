@@ -24,7 +24,7 @@ jobs:
         echo "List directory"
         ls -R
         echo "Build with Maven"
-        mvn -B package --file pom.xml -DskipTests
+        mvn -B package --file pom.xml
         echo "Run tests with Maven"
         mvn test > test-output.txt
 
