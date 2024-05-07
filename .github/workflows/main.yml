@@ -15,10 +15,10 @@ jobs:
         java-version: 22
     - name: List directory
       run: ls -R
-        OUTPUT=$(make test)
+          OUTPUT=$(make test)
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
-        OUTPUT=$(make test)
+          OUTPUT=$(make test)
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
       with:
