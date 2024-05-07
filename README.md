@@ -8,8 +8,12 @@
 
 В файле "График скорости чтения" находится скриншот окна, выдаваемого при запуске PerformanceChart.java из директории src/main. Он показывает производительность функции считывания чисел из кода. Числа считывались из файла minmaxtest1kk.txt, где их миллион.
 
-<center><img src="https://github.com/voaad/TechProg2/blob/main/График%20скорости%20чтения.png?raw=true" alt="График скорости чтения чисел" width="777"/></center>
+<p align="center">
+  <img src="https://github.com/voaad/TechProg2/blob/main/График%20скорости%20чтения.png?raw=true" alt="График скорости чтения чисел" width="777"/>
+</p>
 
 Также CI-система (я решил не умничать и выбрал GitHub Actions) интегрирована в Telegram. С помощью BotFather я создал бота, который шлет мне уведомления, когда происходят коммиты в этот репозиторий.
 
-<center><img src="https://github.com/voaad/TechProg2/blob/main/IMG_4673.jpeg?raw=true" alt="Бот" width="333"/></center>
+<p align="center">
+  <img src="https://github.com/voaad/TechProg2/blob/main/IMG_4673.jpeg?raw=true" alt="Бот" width="333"/>
+</p>
