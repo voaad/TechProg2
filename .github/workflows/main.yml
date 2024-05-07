@@ -17,9 +17,8 @@ jobs:
       run: ls -R
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
-    - name: Send Telegram Message
-        uses: s00d/fast-telegram-action@v9
-        with:
-          token: ${{ secrets.BOTTOKEN }}
-          to: ${{ secrets.CHATID }}
-          message: 'This is a test message from GitHub Actions!'
+    - uses: haishanh/actions-telegram-notification@v1
+      if: ${{ always() }}
+      with:
+        notification-token: ${{ secrets.BOTTOKEN }}
+        job-status: ${{ job.status }}
