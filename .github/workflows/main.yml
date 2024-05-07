@@ -21,15 +21,16 @@ jobs:
     - name: Run tests
       id: test
       run: |
-        echo "List directory"
-        ls -R
-        echo "Build with Maven"
-        mvn -B package --file pom.xml
-        echo "Run tests with Maven"
-        mvn test > test-output.txt
+        - name: List directory
+          run: ls -R
+        - name: Build with Maven
+          run: mvn -B package --file pom.xml -DskipTests
+        - name: Run tests
+          run: |
+            OUTPUT=$(mvn test)
+            echo "::set-output name=test-result::$OUTPUT"
 
     - name: send telegram message on push
-      if: always()
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.CHATID }}
@@ -41,4 +42,3 @@ jobs:
           Repository: ${{ github.repository }}
           Test Results: ${{ steps.test.outputs.test-result }}
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-        document: ./test-output.txt
