@@ -17,14 +17,9 @@ jobs:
       run: ls -R
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
-    - name: send telegram message on push
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.CHATID }}
-        token: ${{ secrets.BOTTOKEN }}
-        message: |
-            ${{ github.actor }} opened a PR for review:
-            ${{ github.event.pull_request._links.html.href }}
-
-            ${{ github.event.pull_request.title }}:
-            ${{ github.event.pull_request.body }}
+    - name: Send Telegram Message
+        uses: s00d/fast-telegram-action@v9
+        with:
+          token: ${{ secrets.BOTTOKEN }}
+          to: ${{ secrets.CHATID }}
+          message: 'This is a test message from GitHub Actions!'
