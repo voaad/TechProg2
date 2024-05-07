@@ -49,7 +49,7 @@ public class MainTest {
     @Test
     public void testMult() throws FileNotFoundException {
         setUp();
-        String expected = new String("Too bi");
+        String expected = new String("Too big");
         String actual = Main._mult(numbers);
         Assertions.assertEquals(expected, actual);
     }
