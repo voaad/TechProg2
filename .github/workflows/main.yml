@@ -17,9 +17,7 @@ jobs:
       id: test
       run: ls -R
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -DskipTests
-      env:
-        TRES: "steps.test.outputs.test-result"
+      run: mvn -B package --file pom.xml
     - name: Run Tests
       run: mvn test
     - name: Publish Test Report
@@ -36,7 +34,4 @@ jobs:
           Новый коммит от ${{ github.actor }} в репозитории ${{ github.repository }}:
           Комментарий: ${{ github.event.commits[0].message }}
             
-          Результаты тестов: ${{ env.TRES }}
           Посмотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-      env:
-        TRES: "ВСЕ ОК"
