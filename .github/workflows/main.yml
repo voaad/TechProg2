@@ -22,4 +22,5 @@ jobs:
       uses: xinthink/action-telegram@v1.1
       with:
         botToken: ${{ secrets.BOTTOKEN }}
+        chatId: ${{ secrets.CHATID }}
         jobStatus: ${{ job.status }}
