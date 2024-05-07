@@ -27,5 +27,5 @@ jobs:
           Комментарий к изменениям: ${{ github.event.commits[0].message }}
             
           Репозиторий: ${{ github.repository }}
-            
+          Результат тестов: ${{join(steps.run_tests.outputs.*, '\n')}}  
           Посмотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
