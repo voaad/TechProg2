@@ -38,4 +38,4 @@ jobs:
       with:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
-        message: "Тесты не пройдены. Подробности в отчете: https://github.com/${{ github.repository }}/actions/runs/${{github.sha}}"
+        message: "Тесты не пройдены. Подробности в отчете: https://github.com/${{ github.repository }}/commit/${{github.sha}}"
