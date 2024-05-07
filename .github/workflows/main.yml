@@ -16,21 +16,20 @@ jobs:
     - name: List directory
       id: test
       run: ls -R
-      env:
-        TRES: 'steps.test.outputs.test-result'
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
+      env:
+        TRES: "steps.test.outputs.test-result"
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
         message: |
-          ${{ github.actor }} created commit:
-          Commit message: ${{ github.event.commits[0].message }}
+          Новый коммит от ${{ github.actor }} в репозитории ${{ github.repository }}:
+          Комментарий: ${{ github.event.commits[0].message }}
             
-          Repository: ${{ github.repository }}
-          Test Results: ${{ env.TRES }}
-          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          Результаты тестов: ${{ env.TRES }}
+          Посмотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
       env:
-        TRES: 'ВСЕ ОК'
+        TRES: "ВСЕ ОК"
