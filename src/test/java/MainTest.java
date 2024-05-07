@@ -16,7 +16,7 @@ public class MainTest {
 
     @BeforeEach
     public void setUp() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("minmaxtest1kk.txt"));
+        Scanner scanner = new Scanner(new File(System.getProperty("user.dir") + "/minmaxtest1kk.txt"));
         numbers = new ArrayList<>();
 
         while (scanner.hasNextBigInteger()) {
