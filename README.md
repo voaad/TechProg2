@@ -12,4 +12,4 @@
 
 Также CI-система (я решил не умничать и выбрал GitHub Actions) интегрирована в Telegram. С помощью BotFather я создал бота, который шлет мне уведомления, когда происходят коммиты в этот репозиторий.
 
-<center><img src="https://github.com/voaad/TechProg2/blob/main/Снимок%20экрана%202024-05-07%20в%2003.08.40.png?raw=true" alt="Михаил Шиномонтаж" width="333"/></center>
+<center><img src="https://github.com/voaad/TechProg2/blob/main/IMG_4673.jpeg?raw=true" alt="Бот" width="333"/></center>
