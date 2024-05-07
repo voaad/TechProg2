@@ -32,6 +32,7 @@ jobs:
 
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
+      if: always()
       with:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
@@ -42,3 +43,4 @@ jobs:
           Repository: ${{ github.repository }}
           Test Results: ${{ steps.test.outputs.test-result }}
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+
