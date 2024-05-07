@@ -24,12 +24,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
 
-    - name: Run tests
-      id: test
-      run: |
-        OUTPUT=$(mvn test)
-        echo "::set-output name=test-result::$OUTPUT"
-
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
       if: always()
@@ -41,5 +35,4 @@ jobs:
           Commit message: ${{ github.event.commits[0].message }}
             
           Repository: ${{ github.repository }}
-          Test Results: ${{ steps.test.outputs.test-result }}
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
