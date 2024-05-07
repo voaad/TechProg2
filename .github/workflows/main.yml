@@ -20,6 +20,13 @@ jobs:
       run: mvn -B package --file pom.xml -DskipTests
       env:
         TRES: "steps.test.outputs.test-result"
+    - name: Run Tests
+      run: mvn test
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v4
+      if: success() || failure()
+      with:
+        report_paths: '**/target/surefire-reports/TEST-*.xml'
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
       with:
