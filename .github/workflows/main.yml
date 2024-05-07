@@ -43,4 +43,3 @@ jobs:
           Repository: ${{ github.repository }}
           Test Results: ${{ steps.test.outputs.test-result }}
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-
