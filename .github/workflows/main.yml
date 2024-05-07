@@ -23,9 +23,8 @@ jobs:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
         message: |
-          ${{ github.actor }} внёс изменения.
+          ${{ github.actor }} внёс изменения в репозиторий: ${{ github.repository }}
           Комментарий к изменениям: ${{ github.event.commits[0].message }}
             
-          Репозиторий: ${{ github.repository }}
-          Результат тестов: ${{join(steps.run_tests.outputs.*, '\n')}}  
+          Результат тестов: ${{ steps.tests.outputs.stdout }}  
           Посмотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
