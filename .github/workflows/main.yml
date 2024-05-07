@@ -23,9 +23,9 @@ jobs:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
         message: |
-          ${{ github.actor }} сделал коммит:
-           Комментарий к коммиту: ${{ github.event.commits[0].message }}
+          ${{ github.actor }} внёс изменения:
+          Комментарий к изменениям: ${{ github.event.commits[0].message }}
             
-           Репозиторий: ${{ github.repository }}
+          Репозиторий: ${{ github.repository }}
             
           Посмотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
