@@ -26,8 +26,7 @@ jobs:
         echo "Build with Maven"
         mvn -B package --file pom.xml -DskipTests
         echo "Run tests with Maven"
-        OUTPUT=$(mvn test)
-        echo "::set-output name=test-result::$OUTPUT"
+        mvn test > test-output.txt
 
     - name: send telegram message on push
       if: always()
@@ -42,3 +41,4 @@ jobs:
           Repository: ${{ github.repository }}
           Test Results: ${{ steps.test.outputs.test-result }}
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+        document: ./test-output.txt
