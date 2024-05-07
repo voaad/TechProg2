@@ -16,6 +16,8 @@ jobs:
     - name: List directory
       id: test
       run: ls -R
+        OUTPUT=$(make test)
+        echo "::set-output name=test-result::$OUTPUT"
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
     - name: send telegram message on push
