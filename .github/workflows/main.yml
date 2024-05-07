@@ -30,6 +30,7 @@ jobs:
         echo "::set-output name=test-result::$OUTPUT"
 
     - name: send telegram message on push
+      if: always()
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.CHATID }}
