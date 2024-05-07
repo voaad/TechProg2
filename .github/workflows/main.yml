@@ -22,15 +22,9 @@ jobs:
       with:
         to: ${{ secrets.CHATID }}
         token: ${{ secrets.BOTTOKEN }}
-        if: always()
-        run: |
-          MESSAGE="Все ок"
-          if [ "${{ steps.Set up JDK 22.outcome }}" != "success" ] || [ "${{ steps.List directory.outcome }}" != "success" ] || [ "${{ steps.Build with Maven.outcome }}" != "success" ]; then
-            MESSAGE="Ошибка"
-          fi
-          message: |
-            ${{ github.actor }} внёс изменения в репозиторий: ${{ github.repository }}
-            Комментарий к изменениям: ${{ github.event.commits[0].message }}
-            
-            Результат тестов: ${{ "$MESSAGE" }}  
-            Посмотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+        message: |
+            ${{ github.actor }} opened a PR for review:
+            ${{ github.event.pull_request._links.html.href }}
+
+            ${{ github.event.pull_request.title }}:
+            ${{ github.event.pull_request.body }}
