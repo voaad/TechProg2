@@ -47,7 +47,7 @@ public class Main {
 
     public static String _mult(List<BigInteger> numbers) {
         BigInteger mult = BigInteger.ONE;
-        BigInteger limit = new BigInteger("10").pow(64);
+        BigInteger limit = new BigInteger("10").pow(256);
         for (BigInteger num : numbers) {
             mult = mult.multiply(num);
             if (mult.compareTo(limit) > 0) {
