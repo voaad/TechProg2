@@ -12,7 +12,7 @@
   <img src="https://github.com/voaad/TechProg2/blob/main/График%20скорости%20чтения.png?raw=true" alt="График скорости чтения чисел" width="777"/>
 </p>
 
-Для интеграции GitHub Actions в Telegram, мной был создан бот, который присылает результаты тестов.
+Для интеграции GitHub Actions в мессенджер, мной был выбран Telegram, где я создал бота, который присылает результаты тестов.
 
 <p align="center">
   <img src="https://github.com/voaad/TechProg2/blob/main/IMG_4677.jpeg?raw=true" alt="Бот" width="333"/>
