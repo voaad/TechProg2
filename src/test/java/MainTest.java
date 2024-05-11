@@ -25,7 +25,7 @@ public class MainTest {
     @Test
     public void testMin() throws FileNotFoundException {
         setUp();
-        BigInteger expected = new BigInteger("7");
+        BigInteger expected = new BigInteger("74758642щ");
         BigInteger actual = Main._min(numbers);
         Assertions.assertEquals(expected, actual);
     }
